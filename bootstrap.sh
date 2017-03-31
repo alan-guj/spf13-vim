@@ -105,7 +105,7 @@ sync_repo() {
 
     if [ ! -e "$repo_path" ]; then
         mkdir -p "$repo_path"
-        git clone -b "$repo_branch" "$repo_uri" "$repo_path"
+        git clone --depth 1 -b "$repo_branch" "$repo_uri" "$repo_path"
         ret="$?"
         success "Successfully cloned $repo_name."
     else
@@ -146,10 +146,12 @@ setup_fork_mode() {
         touch "$target_path/.vimrc.fork"
         touch "$target_path/.vimrc.bundles.fork"
         touch "$target_path/.vimrc.before.fork"
+        touch "$target_path/.vimrc.local"
 
         lnif "$source_path/.vimrc.fork"         "$target_path/.vimrc.fork"
         lnif "$source_path/.vimrc.bundles.fork" "$target_path/.vimrc.bundles.fork"
         lnif "$source_path/.vimrc.before.fork"  "$target_path/.vimrc.before.fork"
+        lnif "$source_path/.vimrc.local"        "$target_path/.vimrc.local"
 
         ret="$?"
         success "Created fork maintainer files."
