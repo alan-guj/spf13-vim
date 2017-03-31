@@ -1,0 +1,4 @@
+Bundle 'leafgarland/typescript-vim'
+Bundle 'artur-shaik/vim-javacomplete2'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Quramy/tsuquyomi'
