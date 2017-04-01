@@ -16,9 +16,9 @@ REM    limitations under the License.
 @if not exist "%HOME%" @set HOME=%HOMEDRIVE%%HOMEPATH%
 @if not exist "%HOME%" @set HOME=%USERPROFILE%
 
-@set APP_PATH=%HOME%\.spf13-vim-3
+@set APP_PATH=%HOME%\.spf13-vim
 IF NOT EXIST "%APP_PATH%" (
-    call git clone -b 3.0 https://github.com/spf13/spf13-vim.git "%APP_PATH%"
+    call git clone -b 3.0 https://github.com/alan-guj/spf13-vim.git "%APP_PATH%"
 ) ELSE (
     @set ORIGINAL_DIR=%CD%
     echo updating spf13-vim
@@ -35,6 +35,7 @@ call mklink "%HOME%\.vimrc.bundles" "%APP_PATH%\.vimrc.bundles"
 call mklink "%HOME%\.vimrc.bundles.fork" "%APP_PATH%\.vimrc.bundles.fork"
 call mklink "%HOME%\.vimrc.before" "%APP_PATH%\.vimrc.before"
 call mklink "%HOME%\.vimrc.before.fork" "%APP_PATH%\.vimrc.before.fork"
+call mklink "%HOME%\.vimrc.local" "%APP_PATH%\.vimrc.local"
 call mklink /J "%HOME%\.vim" "%APP_PATH%\.vim"
 
 IF NOT EXIST "%APP_PATH%\.vim\bundle" (
